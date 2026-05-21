@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--CSS LINK-->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../../assets/logo1.png" alt="Logo" style="width:120px;height:100px;">
+        <h2>Database System</h2>
+    </div>
+    
+    <div class="topnav">
+        <a href="../index.html">Home</a>
+        <a id="productID" href="product.html">Product Inventory</a>
+        <a id="prodempID" href="product-employee.html">Assignments</a>
+        <a id="transactionID" href="transaction.html">Transactions</a>
+        <a id="customerID" href="customer.html">Customer</a>
+
+        <a class="active" id="empID" href="employee.html">Employee</a>
+        <a id="suppID" href="supplier.html">Supplier</a>
+        
+        <a href="../login.html" id="logoutButton" style="float: right;">Log Out</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userRole = localStorage.getItem('userRole');
+            const employeeLink = document.getElementById('employeeLink');
+            const logoutButton = document.getElementById('logoutButton');
+
+            // RESTRICTION VIEWS
+            if (userRole === 'admin') {
+                // admin sees all
+
+            } else if (userRole === 'employee') {
+                // employee restrictions
+                empID.style.display = 'none';
+                prodempID.style.display = 'none';
+                suppID.style.display = 'none';
+
+            } else {
+                alert('Session expired or unauthorized access. Please log in.');
+                window.location.href = 'login.html'; 
+                return; 
+            }
+        });
+    </script>
+
+    <br>
+
+    <!--INSERTION FIELD-->
+    <h4>Employee</h4>
+    <fieldset>
+        <form action="/Ricery/backend/modules/employee.php" method="POST">
+            <!--EMPLOYEE FORM INPUTS-->
+
+            <label for="emp_id"> Employee ID: </label>
+            <input type="text" name="emp_id" minlength="3" maxlength="3"
+                   pattern="E0[1-9]|E10"
+                   title="Employee ID must be from E01 to E10.">
+            <br>
+
+            <label for="emp_fname"> First Name: </label>
+            <input type="text" name="emp_fname" maxlength="50" pattern="[A-Za-z\s]+" title="Letters and spaces only."><br>
+
+            <label for="emp_lname"> Last Name: </label>
+            <input type="text" name="emp_lname" maxlength="50" pattern="[A-Za-z\s]+" title="Letters and spaces only."><br>
+
+            <label for="emp_gender"> Gender: </label>
+            <select name="emp_gender">
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+            </select><br>
+
+            <label for="emp_contactn"> Contact Number: </label>
+            <input type="text" name="emp_contactn" minlength="11" maxlength="11"><br>
+
+            <label for="emp_email"> Email: </label>
+            <input type="email" name="emp_email" maxlength="254" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address (e.g., name@example.com)"><br>
+
+            <label for="emp_bankacc"> Bank Account Number: </label>
+            <input type="text" name="emp_bankacc" maxlength="16"><br>
+
+            <fieldset>
+                <label> Actions </label>
+
+                <a href="/Ricery/backend/modules/employee.php">
+                    <button type="button">Display</button>
+                </a>
+
+                <!--INSERT BUTTON-->
+                <input type="submit" name="insert" value="Insert">
+
+                <!--DELETE BUTTON-->
+                <input type="submit" name="delete" value="Delete">
+
+                <!--UPDATE BUTTON-->
+                <input type="submit" name="update" value="Update"><br>
+            </fieldset>
+
+        </form>
+    </fieldset>
+
+</body>
+</html>
