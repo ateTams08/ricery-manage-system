@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ricery: Database Management System</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        #welcomeMessage {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../assets/logo1.png" alt="Logo" style="width:120px;height:100px;">
+        <h2>Database System</h2>
+    </div>
+    
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a id="productID" href="modules/product.html">Product Inventory</a>
+        <a id="prodempID" href="modules/product-employee.html">Assignments</a>
+        <a id="transactionID" href="modules/transaction.html">Transactions</a>
+        <a id="customerID" href="modules/customer.html">Customer</a>
+
+        <a id="empID" href="modules/employee.html">Employee</a>
+        <a id="suppID" href="modules/supplier.html">Supplier</a>
+        
+        <a href="login.html" id="logoutButton" style="float: right;">Log Out</a>
+    </div>
+
+    <p id="welcomeMessage"></p>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userRole = localStorage.getItem('userRole');
+            const employeeLink = document.getElementById('employeeLink');
+            const welcomeMsg = document.getElementById('welcomeMessage');
+            const logoutButton = document.getElementById('logoutButton');
+
+            // RESTRICTION VIEWS
+            if (userRole === 'admin') {
+                // Admin sees all links
+                welcomeMsg.textContent = 'Welcome, Administrator. Full access granted.';
+                employeeLink.style.display = 'block';
+
+            } else if (userRole === 'employee') {
+                welcomeMsg.textContent = 'Welcome, Employee.';
+                // Hide the Employee and Supplier links
+                empID.style.display = 'none';
+                prodempID.style.display ='none';
+                suppID.style.display = 'none';
+
+            } else {
+                alert('Session expired or unauthorized access. Please log in.');
+                window.location.href = 'login.html'; 
+                return; 
+            }
+        });
+    </script>
+</body>
+</html>

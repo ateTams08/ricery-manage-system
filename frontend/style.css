@@ -1,0 +1,49 @@
+/* style.css */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #628640;
+    margin: 20px;
+}
+h1, h2, h3, h4 {
+    color: #fdffdc;
+}
+
+label {
+  color: #fdffdc;
+}
+
+/*NAVIGATION BAR*/
+.topnav {
+  background-color: #adb661;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #cddbb6;
+  color: rgb(0, 0, 0);
+}
+
+.topnav a.active {
+  background-color: #79aa2a;
+  color: white;
+} 
+
+/*LOGO CONTAINER*/
+.logo-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px; 
+
+    margin-bottom: 1px;
+}

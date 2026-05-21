@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #628640; }
+        
+        label {
+            color: #628640
+        }
+
+        .login-container { background: rgb(255, 255, 251); padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; }
+        button { background-color: #859119; color: rgb(255, 255, 255); padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; border-radius: 4px; }
+        button:hover { opacity: 0.8; }
+        #message { color: red; margin-top: 10px; }
+
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>System Login</h2>
+    <form id="loginForm">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="password" required>
+
+        <button type="submit">Login</button>
+        <p id="message"></p>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        let role = null;
+
+        // USER & PASS
+        if (user === 'admin' && pass === 'admin123') {
+            role = 'admin';
+        } else if (user === 'employee' && pass === 'emp456') {
+            role = 'employee';
+        } else {
+            document.getElementById('message').textContent = 'Invalid credentials.';
+            return;
+        }
+
+        localStorage.setItem('userRole', role);
+
+        // Redirect to Home Page (index.html)
+        window.location.href = 'index.html'; 
+    });
+</script>
+
+</body>
+</html>
