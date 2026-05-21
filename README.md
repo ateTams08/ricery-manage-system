@@ -74,7 +74,7 @@ transactions, customer records, and supplier management.
 ![Transaction](assets/admin-transaction-page.png)
 
 ### User Dashboard: Transaction Page
-![Transaction](assets/user-transaction-paget.png)
+![Transaction](assets/user-transaction-page.png)
 
 ---
 
