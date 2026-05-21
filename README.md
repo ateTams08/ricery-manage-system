@@ -67,11 +67,14 @@ transactions, customer records, and supplier management.
 
 ## Screenshots
 
-### Login Page
-![Login](assets/login-screenshot.png)
+### Admin Login Page
+![Login](assets/admin-login-page.png)
 
-### Admin Dashboard
-![Dashboard](assets/dashboard-screenshot.png)
+### Admin Dashboard: Transaction Page
+![Transaction](assets/admin-transaction-page.png)
+
+### User Dashboard: Transaction Page
+![Transaction](assets/user-transaction-paget.png)
 
 ---
 
