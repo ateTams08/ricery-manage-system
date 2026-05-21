@@ -75,9 +75,3 @@ transactions, customer records, and supplier management.
 
 ### User Dashboard: Transaction Page
 ![Transaction](assets/user-transaction-page.png)
-
----
-
-## Documentation
-Full system documentation including ER diagram, data dictionary,
-and interface guide is available in `docs/final_docu_short.pdf`
